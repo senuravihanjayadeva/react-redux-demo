@@ -21,3 +21,51 @@ export const fetchAll = () => (dispatch) => {
       console.log(err);
     });
 };
+
+export const create = (data, OnSuccess) => (dispatch) => {
+  api
+    .students()
+    .create(data)
+    .then((res) => {
+      dispatch({
+        type: ACTION_TYPES.CREATE,
+        payload: res.data,
+      });
+      OnSuccess();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const update = (id, data, OnSuccess) => (dispatch) => {
+  api
+    .students()
+    .create(id, data)
+    .then((res) => {
+      dispatch({
+        type: ACTION_TYPES.UPDATE,
+        payload: { id, ...data },
+      });
+      OnSuccess();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const Delete = (id, OnSuccess) => (dispatch) => {
+  api
+    .students()
+    .delete(id)
+    .then((res) => {
+      dispatch({
+        type: ACTION_TYPES.DELETE,
+        payload: { id },
+      });
+      OnSuccess();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
