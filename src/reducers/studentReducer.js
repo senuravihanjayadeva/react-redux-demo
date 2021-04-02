@@ -26,7 +26,7 @@ export const studentReducer = (state = initialState, action) => {
     case ACTION_TYPES.DELETE:
       return {
         ...state,
-        studentList: state.studentList.filter((x) => x.id != action.payload),
+        studentList: state.studentList.filter((x) => x.id != action.payload.id),
       };
     default:
       return state;

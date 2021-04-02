@@ -17,6 +17,12 @@ const StudentsComponent = ({ classes, ...props }) => {
   useEffect(() => {
     props.fetchAllStudents();
   }, []);
+
+  const OnDelete = (id) => {
+    props.deleteStudent(id, () => {
+      alert("Deleted successfully");
+    });
+  };
   return (
     <div className="container">
       <div>
@@ -48,6 +54,16 @@ const StudentsComponent = ({ classes, ...props }) => {
                       Edit
                     </button>
                   </TableCell>
+                  <TableCell align="center">
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => {
+                        OnDelete(student.id);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -64,6 +80,7 @@ const mapStateToProps = (state) => ({
 
 const mapActionToProps = {
   fetchAllStudents: actions.fetchAll,
+  deleteStudent: actions.Delete,
 };
 
 export default connect(mapStateToProps, mapActionToProps)(StudentsComponent);
