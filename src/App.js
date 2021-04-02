@@ -7,7 +7,6 @@ import AddStudent from "./components/AddStudent";
 function App() {
   return (
     <Provider store={store}>
-      <AddStudent />
       <StudentsComponent />
     </Provider>
   );

@@ -41,8 +41,8 @@ export const create = (data, OnSuccess) => (dispatch) => {
 export const update = (id, data, OnSuccess) => (dispatch) => {
   api
     .students()
-    .create(id, data)
-    .then((res) => {
+    .update(id, data)
+    .then(() => {
       dispatch({
         type: ACTION_TYPES.UPDATE,
         payload: { id, ...data },
