@@ -51,7 +51,7 @@ const StudentsComponent = ({ classes, ...props }) => {
                         setCurrentId(student.id);
                       }}
                     >
-                      Edit
+                      Edits
                     </button>
                   </TableCell>
                   <TableCell align="center">
